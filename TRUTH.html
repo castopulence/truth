@@ -6,7 +6,7 @@
   <title>INFINITY(2) - ∞</title>
   <style>
    body > div.Mathematics { font-family: "Andalé Mono, Lucida Console, Courier, Luminari"; white-space: pre-wrap; }
-   bind:hover, bind:active, bind:visited { color: darkgrey; font-weight: 800; }
+   bind:hover, bind:active, bind:visited, bind.shimmer { color: darkgrey; font-weight: 800; }
   </style>
  </head>
  <body>
@@ -30,8 +30,8 @@
   <p>You <bind id="payme" title="payme">pay me</bind> <bind id="prettywell" title="prettywell">pretty well</bind> to be a <bind id="codemonkey" title="codemonkey">code monkey</bind>. So far you aren't <bind id="payme" title="payme">paying me</bind> to tell you <bind id="truth" title="truth">the truth</bind>.</p>
   <p>But I figure if I can <bind id="softentheblow" title="softentheblow">soften the blow</bind> enough so that you can <bind id="understand" title="understand">understand</bind> me maybe you'll see that I'm <bind id="approachinginfinitelycorrect" title="approachinginfinitelycorrect">on to something</bind> here.</p>
   <p>We're all doing our best to do better, but the truth keeps getting in the way.</p>
-  <p>I'm <bind id="personsufficientlydifferenttostruggleinsociety" title="personsufficientlydifferenttostruggleinsociety">Autistic</bind>. For me, and not necessarily for everyone <bind id="assigneddiagnosis" title="assigneddiagnosis">diagnosed</bind> (or <bind inverted="true" id="assigneddiagnosis" title="notassigneddiagnosis">undiagnosed</bind>) with <bind id="autismspectrumdisorder" title="autismspectrumdisorder">Autism Spectrum Disorder</bind>, that means that I really like the absolute truth.</p>
-  <p>I don't care who the truth hurts, even if it's me, because I believe that it's the best thing there is.</p>
+  <p>I'm <bind id="personsufficientlydifferenttostruggleinsociety" title="personsufficientlydifferenttostruggleinsociety">Autistic</bind>. For me, and not necessarily for everyone <bind id="assigneddiagnosis" title="assigneddiagnosis">diagnosed</bind> (or <bind inverted="true" id="assigneddiagnosis" title="notassigneddiagnosis">undiagnosed</bind>) with <bind id="autismspectrumdisorder" title="autismspectrumdisorder">Autism Spectrum Disorder</bind>, that means that I really like the <bind id="truth" title="truth">absolute truth</bind>.</p>
+  <p>I don't care who the truth hurts, even if it's me, because I believe that it's the best thing there is for the collective.</p>
   <p>And that's because you taught me that it was. You taught me that because it's <bind id="true" title="true">true</bind>.</p>
   <p>Facebook is getting into trouble because it's full of lies. But it's only full of lies because that's all that you will <bind id="tolerate" title="tolerate">tolerate</bind>.</p>
   <p><bind id="socialmedia2.0" title="socialmedia2.0">Social Media 2.0</bind> needs to do something different. It needs to be transparent about the fact that it is rewriting every post for the user reading it.</p>
@@ -39,8 +39,9 @@
   <p>A story that <strong>won't <bind id="hurtyou" title="hurtyou">hurt you</bind></strong>.</p>
   <p>The platform needs to be transparent that the post that you're reading was authored by <bind id="artificialintelligence" title="artificialintelligence">AI</bind>, and not the actual author of the post, and it needs to be transparent about the lies that it introduces into the narrative to help you understand.</p>
   <p>We need you not only to LIKE posts, but we need you to UNDERSTAND posts. If you don't understand the post then it's either a lie or you're biased. Either way, you get ZERO value from it.</p>
-  <p>If Facebook is worth that much telling you only lies, IMAGINE how valuable Facebook is going to be when it only tells you the truth, and it makes sure you understand the truth.</p>
-  <p>To fix the world we need for Facebook to tell the truth, and we need for you to be able to understand the truth without a knee-jerk caveman reaction of hitting back because it hurts..</p>
+  <p>And so the collective gets zero value from you reading it. The risk then is that the only thing that it can ever do is bring negative value to society (zero being neutral).</p>
+  <p>If <bind id="socialmedia1.0" title="socialmedia1.0">Facebook</bind> is worth that much telling you only lies, IMAGINE how valuable <bind id="facebookinc" title="facebookinc">Facebook</bind> is going to be when it only tells you the truth, and it makes sure you understand the truth.</p>
+  <p>To fix the world we need for <bind id="socialmedia" title="socialmedia">Facebook</bind> to tell the truth, and we need for you to be able to understand the truth without a knee-jerk caveman reaction of hitting back because it hurts..</p>
   <p>Here's the best part: school is a place where we send everybody to be taught the truth. They need the truth to survive and to coexist in society peacefully.</p>
   <p>What we're discovering is that <bind id="socialmedia2.0" title="socialmedia2.0">Social Media 2.0</bind> is actually also <bind id="socialmedia2.0" title="socialmedia2.0">School 2.0</bind>.</p>
   <p>It's the fastest and most fun way to learn about the world. That's why we're all so addicted to doing it.</p>
@@ -50,6 +51,38 @@
   <p>It seems to me that we're going to eventually need words to tell entire stories. They already do, of course, but we need to acknowledge it.</p>
   <p>And so binary computers may not "understand" what <bind id="pain" title="pain">pain</bind> is, but at least we can teach them pain is a <bind id="truth" title="truth">truth</bind>, and it only has one meaning that spans an infinite spectrum, even if some of us can't understand it anymore.</p>
   <p><bind id="artificialintelligence" title="artificialintelligence">Artificial Intelligence</bind> can understand the world by relating all of the words and stories together in all of their infinite ways.</p>
-  <p>- <bind class="author" id="Brandon Andrew McCaig, born 1986-08-26AD in Kitchener, Ontario, Canada.">Brandon Andrew McCaig</bind></p>
+  <p>- <bind class="author" id="Brandon Andrew McCaig, born 1986-08-26AD in Kitchener, Ontario, Canada." title="Brandon Andrew McCaig, born 1986-08-26AD in Kitchener, Ontario, Canada.">Brandon Andrew McCaig</bind></p>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    "use strict";
+    $.fn.extend({
+      // This is going to hurt before it gets better. But this will help to highlight the "bindings" for mobile users.
+      "shimmer" : function (options) {
+        const default_step = 250;
+        if (typeof options.offset === "undefined") {
+          options.offset = 0;
+        } else {
+          options.offset += (options.step || default_step);
+        }
+        const $self = $(this);
+        const shimmer = options.color;
+
+        setTimeout(function() {
+          $self.addClass("shimmer");
+          setTimeout(function () {
+            $self.removeClass("shimmer");
+          }, default_step);
+        }, default_step + options.offset);
+      }
+    });
+    $(function () {
+      const everyminute = 1000 * 60;
+      //const interval = setInterval(shimmer, everyminute);
+      function shimmer () {
+        jQuery("bind").shimmer({});
+      }
+      shimmer();
+    });
+  </script>
  </body>
 </html>
