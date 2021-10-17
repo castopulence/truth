@@ -3,10 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+  <meta class="shimmer crescendo" />
   <title>INFINITY(2) - ∞</title>
   <style>
    body > div.Mathematics { font-family: "Andalé Mono, Lucida Console, Courier, Luminari"; white-space: pre-wrap; }
-   bind:hover, bind:active, bind:visited, bind.shimmer { color: darkgrey; font-weight: 800; }
+   body.shimmer { background-color: darkgray; color: lightgray; }
+   body.shimmer a { background-color: darkgray; color: lightgray; }
+   body.shimmer a:active, body.shimmer a:hover, body.shimmer a:visited { color: lightpink; }
+   bind:hover, bind:active, bind:visited, bind.shimmer { color: white; font-weight: 800; }
   </style>
  </head>
  <body>
@@ -69,18 +73,25 @@
         const default_step = 250;
         if (typeof options.offset === "undefined") {
           options.offset = 0;
+          options.limit = 0;
         } else {
           options.offset += (options.step || default_step);
+          options.limit += 1;
         }
         const $self = $(this);
-        const shimmer = options.color;
-
-        setTimeout(function() {
-          $self.addClass("shimmer");
-          setTimeout(function () {
-            $self.removeClass("shimmer");
-          }, default_step);
-        }, default_step + options.offset);
+        $("body").addClass("shimmer");
+        const thepromise = new Promise(function (resolve, reject) {
+          delay(default_step + options.offset).then(function() {
+            $self.addClass("shimmer");
+            delay(default_step).then(function () {
+              $self.removeClass("shimmer");
+              options.limit--;
+              if (options.limit <= 0) {
+                $("body").removeClass("shimmer");
+              }
+            });
+          });
+        });
       }
     });
     $(function () {
@@ -91,6 +102,11 @@
       }
       shimmer();
     });
+    function delay(ms) {
+      return new Promise(function (resolve) {
+        setTimeout(resolve, ms);
+      });
+    }
   </script>
  </body>
 </html>
