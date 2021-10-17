@@ -1,5 +1,5 @@
 # truth
-THE TRUTH - but only as far as we see it
+THE TRUTH - but only as far as we see it (so far)
 
 Published at https://castopulence.org and https://castopulence.org/TRUTH.html.
 
