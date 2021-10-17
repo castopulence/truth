@@ -11,10 +11,10 @@ clean:
 	$(REMOVE) $(ALL)
 
 commit:
-	git commit -aev
+	-git commit -aev
 
 push:
-	git push
+	-git push
 
 rebuild: clean all
 
