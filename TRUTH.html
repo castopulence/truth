@@ -75,7 +75,8 @@
   <script type="text/javascript">
     "use strict";
     $.fn.extend({
-      // This is going to hurt before it gets better. But this will help to highlight the "bindings" for mobile users.
+      // "Shiny". A poor-man's shine effect to draw the eyes to the
+      // bindings.
       "shimmer" : function (options) {
         const default_step = 250;
         if (typeof options.offset === "undefined") {
@@ -100,6 +101,7 @@
           });
         });
       },
+      // A poor man's tooltip for mobile browsers.
       "tooltip" : function () {
         const $self = $(this);
         const $title = $self.find("span.title");
