@@ -1,0 +1,15 @@
+This is a simple static content project with very mimimal glue to piece
+some existing tools together. I think that it's quite a nice way to manage
+it, but obviously most of you will have different preferences. If you are
+a software developer then you'll likely be able to make sense of the
+Makefile to start at least. Contributions are welcome to either the
+project architecture and tooling, the truth (i.e., the bindings), or the
+content/ideas themselves.
+
+Signatures are also welcome. Signatures are meant to represent your
+affirmation that you support the project and agree with the truths in it.
+I recommend identifying the version of the file(s) that you are signing
+since it is composed from living documents and untruths (or untruths in
+your world view) can be introduced at any time. If the document is buggy
+(i.e., you don't agree with it) then your contributions can be suggestions
+to make it less buggy.

@@ -1,6 +1,6 @@
 .PHONY: all build clean commit push rebuild verify
 REMOVE = rm -fR
-SIGNATURES = README.md.asc TRUTH.html.asc
+SIGNATURES = CONTRIBUTING.asc README.md.asc TRUTH.html.asc
 ALL = $(SIGNATURES)
 
 all: build verify commit push
