@@ -16,6 +16,10 @@ us alive. And they're composed of us, and we're afraid and skeptical, so
 it will take some time before we manage to convince ourselves that we can
 do better than justifying our existence with jobs that support a family
 even if the work that we're doing is actually harmful for the collective.
+A large part of the technical solution to this will be large, scalable,
+artificial intelligence systems capable of making sense of millions or
+even trillions of connections.. So we're going to need help there from the
+major players (or major investors and up and coming talents).
 
 We need to aim for a better future, like one in which we take care of all
 of our neighbours regardless of whether we know them or not, forgive the
