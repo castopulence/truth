@@ -1,10 +1,23 @@
 This is a simple static content project with very mimimal glue to piece
 some existing tools together. I think that it's quite a nice way to manage
-it, but obviously most of you will have different preferences. If you are
-a software developer then you'll likely be able to make sense of the
-Makefile to start at least. Contributions are welcome to either the
-project architecture and tooling, the truth (i.e., the bindings), or the
-content/ideas themselves.
+it, but obviously most of you will have different preferences. Regardless
+even I admit there is much room for improvement to get it to a system that
+is usable by the entire population with mimimal effort (which should be
+our goal). If you are a software developer then you'll likely be able to
+make sense of the Makefile to start at least, but even if you aren't
+that's a good place to look at how I manage this project. Contributions
+are welcome to either the project architecture and tooling, the truth
+(i.e., the bindings), or the content/ideas themselves.
+
+You can submit pull requests back to the "hive mind" repo or submit
+patches to us any other way that you know how. No well-intended efforts
+will be refused even if mistakes are made, but if I don't share the same
+vision as you I may require you to meet the project's standards (which
+includes my standards) before I will accept contributions that I don't
+understand. In that case feel free to seek out help to complete your work
+if need be. I envision this being a project that could grow to epic
+proportions. And if you feel that I am doing an inadequate job of
+maintaining it then you may exercise your rights and freedoms to fork.
 
 Signatures are also welcome. Signatures are meant to represent your
 affirmation that you support the project and agree with the truths in it.
