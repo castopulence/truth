@@ -1,11 +1,11 @@
 .PHONY: all build clean commit push rebuild verify
 REMOVE = rm -fR
-SIGNATURE = TRUTH.html.asc
-ALL = $(SIGNATURE)
+SIGNATURES = README.md.asc TRUTH.html.asc
+ALL = $(SIGNATURES)
 
 all: build verify commit push
 
-build: $(SIGNATURE)
+build: $(SIGNATURES)
 
 clean:
 	$(REMOVE) $(ALL)
@@ -19,7 +19,7 @@ push:
 rebuild: clean all
 
 verify:
-	gpg --verify $(SIGNATURE)
+	for f in $(SIGNATURES); do gpg --verify $$f; done;
 
 %.asc: %
 	gpg --detach-sign --armor $<
