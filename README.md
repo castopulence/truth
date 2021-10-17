@@ -31,4 +31,7 @@ society, achieve true equality, and redefine our social hierarchies around
 the truth instead of our existing animalistic rules (typically the "best"
 "animals" by some narrow definition of best). Once we understand each
 others truths we'll know that we can trust each other. But until then we
-will need to be careful who we do trust.
+will need to be careful who we do trust. I suggest using truth to
+determine that. You'll know who you can trust by how much untruth they
+know and how willing they are to consider that they might be wrong
+relative to their position in the truth-based hierarchies.
