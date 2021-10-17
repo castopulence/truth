@@ -1,7 +1,7 @@
 .PHONY: all build clean commit push rebuild verify
-ALL = TRUTH.html.asc
 REMOVE = rm -fR
 SIGNATURE = TRUTH.html.asc
+ALL = $(SIGNATURE)
 
 all: build verify commit push
 
