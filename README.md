@@ -23,3 +23,12 @@ ones who are weak and make mistakes (all of us), and work together to
 solve each of our problems as a collective. We need to be willing to be
 selfless for the good of the rest of us. And trust that we'll collectively
 do the same so that you don't have to worry either.
+
+That's a tall order, admittedly. We need to approach it carefully to
+ensure our collective survival. That's why instead of me working on that
+directly I'm working on this. That is going to require us to restructure
+society, achieve true equality, and redefine our social hierarchies around
+the truth instead of our existing animalistic rules (typically the "best"
+"animals" by some narrow definition of best). Once we understand each
+others truths we'll know that we can trust each other. But until then we
+will need to be careful who we do trust.
