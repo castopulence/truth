@@ -34,4 +34,9 @@ others truths we'll know that we can trust each other. But until then we
 will need to be careful who we do trust. I suggest using truth to
 determine that. You'll know who you can trust by how much untruth they
 know and how willing they are to consider that they might be wrong
-relative to their position in the truth-based hierarchies.
+relative to their position in the truth-based hierarchies. It's OK to be a
+know-it-all if you are actually striving to master the truth and are
+actually really close to doing it. It's much less OK if your idea of a
+know-it-all is somebody that gets to be right all of the time regardless
+of what they believe or say. The truth is always somewhere close to the
+collective moral good, and infinity.
