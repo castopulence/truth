@@ -30,4 +30,4 @@ verify:
 	gpg --detach-sign --armor $<
 
 %.classes: %
-	perl contrib/find-classes.pl < $< >> $<.classes
+	perl contrib/find-classes.pl < $< > $@
