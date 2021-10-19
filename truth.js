@@ -61,10 +61,14 @@ function downloadimage() {
 
   for (let i=0, l=$images.length; i<l; i++) {
     const $image = $($images[i]),
-          origsrc = $image.prop("data-orig-src");
-    if (origsrc) {
-      $image.attr("src", origsrc);
-      $image.removeAttribute("data-orig-src");
+          orig_src = $image.attr("data-orig-src"),
+          orig_height = $image.attr("data-orig-height"),
+          orig_width = $image.attr("data-orig-width");
+    if (orig_src) {
+      $image.attr("src", orig_src);
+      $image.attr("width", orig_width);
+      $image.attr("height", orig_height);
+      $image.removeAttr("data-orig-src");
     } else {
       const url = $image.data("full-size-url");
 
