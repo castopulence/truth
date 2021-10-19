@@ -1,6 +1,6 @@
 .PHONY: all build clean commit push rebuild verify
 REMOVE = rm -fR
-SIGNATURES = CONTRIBUTING.asc Makefile.asc README.md.asc TRUTH.html.asc truth.js.asc
+SIGNATURES = CONTRIBUTING.asc Makefile.asc README.md.asc TRUTH.html.asc truth.js.asc contrib/find-classes.pl.asc contrib/add-dashes-to-classes.bash.asc
 ALL = $(SIGNATURES)
 
 all: build verify commit push
