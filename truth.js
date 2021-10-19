@@ -42,41 +42,52 @@ $.fn.extend({
 });
 $(function () {
   const everyminute = 1000 * 60;
-  //const interval = setInterval(shimmer, everyminute);
-  shimmer();
+  if (false) {
+    const interval = setInterval(shimmer, everyminute);
+  } else {
+    shimmer();
+  }
   $("body").on("click", "bind[title]", toggletooltip);
-  $("body").on("click", "a img.downloadable", downloadimage);
-  function downloadimage() {
-    const $self = $(this),
-          $images = $self.find("img.downloadable");
-
-    for (let image in $images) {
-      const $image = $(image),
-            origsrc = $image.prop("data-orig-src");
-      if (origsrc) {
-        $image.attr("src", origsrc);
-        $image.removeAttribute("data-orig-src");
-      } else {
-        const url = $image.data("full-size-url");
-
-        if ($url) {
-          const old_url = $self.prop("src");
-
-          $self.attr("data-orig-src", old_url);
-          $image.attr("src", url);
-        }
-      }
-    }
-  }
-  function shimmer () {
-    $("bind").shimmer({});
-  }
-  function toggletooltip() {
-    $(this).tooltip();
-  }
+  $("body").on("click", "a:has(img.downloadable-image)", downloadimage);
 });
 function delay(ms) {
   return new Promise(function (resolve) {
     setTimeout(resolve, ms);
   });
+}
+function downloadimage() {
+  const $self = $(this),
+        $images = $self.find("img.downloadable-image");
+
+  for (let i=0, l=$images.length; i<l; i++) {
+    const $image = $($images[i]),
+          origsrc = $image.prop("data-orig-src");
+    if (origsrc) {
+      $image.attr("src", origsrc);
+      $image.removeAttribute("data-orig-src");
+    } else {
+      const url = $image.data("full-size-url");
+
+      if (url) {
+        const width = $image.data("full-width"),
+              height = $image.data("full-height"),
+              old_url = $image.prop("src"),
+              old_width = $image.prop("width"),
+              old_height = $image.prop("height");
+
+        $image.attr("data-orig-src", old_url);
+        $image.attr("data-orig-width", old_width);
+        $image.attr("data-orig-height", old_height);
+        $image.attr("src", url);
+        $image.attr("height", height);
+        $image.attr("width", width);
+      }
+    }
+  }
+}
+function shimmer () {
+  $("bind").shimmer({});
+}
+function toggletooltip() {
+  $(this).tooltip();
 }
