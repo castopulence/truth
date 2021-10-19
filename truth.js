@@ -44,9 +44,32 @@ $(function () {
   const everyminute = 1000 * 60;
   //const interval = setInterval(shimmer, everyminute);
   shimmer();
-  jQuery("body").on("click", "bind[title]", toggletooltip);
+  $("body").on("click", "bind[title]", toggletooltip);
+  $("body").on("click", "a img.downloadable", downloadimage);
+  function downloadimage() {
+    const $self = $(this),
+          $images = $self.find("img.downloadable");
+
+    for (let image in $images) {
+      const $image = $(image),
+            origsrc = $image.prop("data-orig-src");
+      if (origsrc) {
+        $image.attr("src", origsrc);
+        $image.removeAttribute("data-orig-src");
+      } else {
+        const url = $image.data("full-size-url");
+
+        if ($url) {
+          const old_url = $self.prop("src");
+
+          $self.attr("data-orig-src", old_url);
+          $image.attr("src", url);
+        }
+      }
+    }
+  }
   function shimmer () {
-    jQuery("bind").shimmer({});
+    $("bind").shimmer({});
   }
   function toggletooltip() {
     $(this).tooltip();
