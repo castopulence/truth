@@ -3,15 +3,13 @@ use v5.032;
 our %classes;
 
 while (my $line = <STDIN>) {
-    chomp($line);
+  chomp($line);
 
-    my @values = $line =~ m{ class="([^"]*)" }gx;
+  my @values = $line =~ m{ class \s* = \s* " ([^"]*) " }gx;
 
-    for my $value (map split(/ /), @values) {
-        say $value;
-
-        $classes{$value} = 1;
-    }
+  for my $value (map split(/ /), @values) {
+    $classes{$value} = 1;
+  }
 }
 
 say for sort { $a cmp $b } keys %classes;
