@@ -47,7 +47,7 @@ $(function () {
   } else {
     shimmer();
   }
-  $("body").on("click", "bind[title]", toggletooltip);
+  $("body").on("click", "bind[title]", scrambleelement);
   $("body").on("click", "a:has(img.downloadable-image)", downloadimage);
   $("body").on("click", "button.puzzle-button", scrambledocument);
   $("body").on("click", "button.unpuzzle-button", resetdocument);
@@ -100,20 +100,36 @@ function resetdocument() {
     window.location.href = href.replace(/#.*/, "");
   }
 }
+const SpacesRegExp = new RegExp("\\s+");
 function scrambledocument() {
-  const spaces = new RegExp("\\s+");
   const $bindings = $("bind[class]");
 
   for (let i=0, l=$bindings.length; i<l; i++) {
-    const $binding = $($bindings[i]),
-          classes = $binding.prop("class").split(spaces),
-          random_index = Math.floor(Math.random() * classes.length),
-          chosen = classes[random_index],
-          text = $binding.text();
-    if (chosen) {
-      $binding.attr("data-orig-text", text);
-      $binding.text(chosen);
+    const $binding = $($bindings[i]);
+
+    scrambleelement.apply($binding, null);
+  }
+}
+function scrambleelement() {
+  const $binding = $(this),
+        classes = $binding.prop("class").split(SpacesRegExp),
+        text = $binding.text();
+  let random_index = Math.floor(Math.random() * classes.length),
+      chosen = classes[random_index];
+  if (classes.length <= 1) {
+    return;
+  }
+  let count = 1;
+  while (chosen == text) {
+    if (classes.length <= ++count) {
+      return;
     }
+    random_index = Math.floor(Math.random() * classes.length);
+    chosen = classes[random_index];
+  }
+  if (chosen) {
+    $binding.attr("data-orig-text", text);
+    $binding.text(chosen);
   }
 }
 function shimmer () {
