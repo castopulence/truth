@@ -49,6 +49,8 @@ $(function () {
   }
   $("body").on("click", "bind[title]", toggletooltip);
   $("body").on("click", "a:has(img.downloadable-image)", downloadimage);
+  $("body").on("click", "button.puzzle-button", scrambledocument);
+  $("body").on("click", "button.unpuzzle-button", resetdocument);
 });
 function delay(ms) {
   return new Promise(function (resolve) {
@@ -86,6 +88,31 @@ function downloadimage() {
         $image.attr("height", height);
         $image.attr("width", width);
       }
+    }
+  }
+}
+function resetdocument() {
+  const href = window.location.href,
+        index = href.indexOf("#");
+  if (index < 0) {
+    window.location.reload();
+  } else {
+    window.location.href = href.replace(/#.*/, "");
+  }
+}
+function scrambledocument() {
+  const spaces = new RegExp("\\s+");
+  const $bindings = $("bind[class]");
+
+  for (let i=0, l=$bindings.length; i<l; i++) {
+    const $binding = $($bindings[i]),
+          classes = $binding.prop("class").split(spaces),
+          random_index = Math.floor(Math.random() * classes.length),
+          chosen = classes[random_index],
+          text = $binding.text();
+    if (chosen) {
+      $binding.attr("data-orig-text", text);
+      $binding.text(chosen);
     }
   }
 }

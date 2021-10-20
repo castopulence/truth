@@ -12,12 +12,18 @@
    body.shimmer a:active, body.shimmer a:hover, body.shimmer a:visited { color: lightpink; }
    body.shimmer bind:hover, body.shimmer bind:active, body.shimmer bind:visited, body.shimmer bind.shimmer { color: white; }
    bind:hover, bind:active, bind:visited, bind.shimmer { color: darkgray; cursor: help; font-weight: 800; }
+   button { display: inline-block; }
+   div.control-panel { float: right; }
    <!-- Borrowed from https://stackoverflow.com/a/12538532 -->
    .more_info { border-bottom: 1px dotted; position: relative; }
    .more_info .title { position: absolute; top: 20px; background: silver; padding: 4px; left: 0; white-space: nowrap; }
   </style>
  </head>
  <body>
+  <div class="control-panel">
+    <button class="puzzle-button" id="puzzle-button" type="button"><img src="images/vector-puzzle-piece-icon.jpg" alt="Puzzle" title="Click to scramble the document with hidden meanings." width="45" height="45" /></button>
+    <button class="unpuzzle-button" id="unpuzzle-button" type="button"><img src="images/FreeVector-Jigsaw-Puzzle.jpg" alt="Reset" title="Click to reset the document back to default." width="45" height="45" /></button>
+  </div>
   <h1>INFINITY(2) - ∞</h1>
   <hr />
   <h2 id="TableOfContents"><bind class="table-of-contents" title="table-of-contents">Table of Contents</bind></h2>
