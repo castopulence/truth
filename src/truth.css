@@ -8,7 +8,7 @@ bind:hover, bind:active, bind:visited, bind.shimmer { color: darkgray; cursor: h
 button { display: inline-block; }
 div.title {  }
 div.title button, div.title h1 { display: inline; }
-iframe, img { display: block; max-width: 100%; }
+iframe, img { display: block; height: auto; max-width: 100%; }
 <!-- Borrowed from https://stackoverflow.com/a/12538532 -->
 .more_info { border-bottom: 1px dotted; position: relative; }
 .more_info .title { position: absolute; top: 20px; background: silver; padding: 4px; left: 0; white-space: nowrap; }
