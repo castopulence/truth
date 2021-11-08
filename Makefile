@@ -1,7 +1,7 @@
 .PHONY: all build classes clean commit push rebuild signatures verify
-CLASSES = classes/TRUTH.html.classes
+CLASSES = classes/TRUTH.html.classes classes/religion.html.classes
 REMOVE = rm -fR
-SIGNATURES = signatures/CONTRIBUTING.asc signatures/Makefile.asc signatures/README.md.asc signatures/TRUTH.html.asc signatures/truth.css.asc signatures/truth.js.asc signatures/find-classes.pl.asc signatures/add-dashes-to-classes.bash.asc
+SIGNATURES = signatures/CONTRIBUTING.asc signatures/Makefile.asc signatures/README.md.asc signatures/TRUTH.html.asc signatures/truth.css.asc signatures/truth.js.asc signatures/find-classes.pl.asc signatures/add-dashes-to-classes.bash.asc signatures/religion.html.asc
 ALL = $(CLASSES) $(SIGNATURES)
 
 all: build verify commit push
@@ -31,14 +31,19 @@ verify:
 	gpg --verify signatures/Makefile.asc Makefile
 	gpg --verify signatures/README.md.asc README.md
 	gpg --verify signatures/TRUTH.html.asc src/TRUTH.html
+	gpg --verify signatures/truth.css.asc src/truth.css
 	gpg --verify signatures/truth.js.asc src/truth.js
 	gpg --verify signatures/find-classes.pl.asc contrib/find-classes.pl
 	gpg --verify signatures/add-dashes-to-classes.bash.asc contrib/add-dashes-to-classes.bash
+	gpg --verify signatures/religion.html.asc src/religion.html
 
 %.asc: %
 	gpg --detach-sign --armor $<
 
 %.classes: %
+	perl contrib/find-classes.pl < $< > $@
+
+classes/religion.html.classes: src/religion.html
 	perl contrib/find-classes.pl < $< > $@
 
 classes/TRUTH.html.classes: src/TRUTH.html
@@ -50,28 +55,32 @@ signatures/CONTRIBUTING.asc: CONTRIBUTING
 
 signatures/Makefile.asc: Makefile
 	gpg --detach-sign --armor $<
-	mv -f $<.asc signatures/$<.asc
+	mv -f $<.asc $@
 
 signatures/README.md.asc: README.md
 	gpg --detach-sign --armor $<
-	mv -f $<.asc signatures/$<.asc
+	mv -f $<.asc $@
 
 signatures/TRUTH.html.asc: src/TRUTH.html
 	gpg --detach-sign --armor $<
-	mv -f src/TRUTH.html.asc signatures/TRUTH.html.asc
+	mv -f $<.asc $@
 
 signatures/add-dashes-to-classes.bash.asc: contrib/add-dashes-to-classes.bash
 	gpg --detach-sign --armor $<
-	mv -f contrib/add-dashes-to-classes.bash.asc signatures/add-dashes-to-classes.bash.asc
+	mv -f $<.asc $@
 
 signatures/find-classes.pl.asc: contrib/find-classes.pl
 	gpg --detach-sign --armor $<
-	mv -f contrib/find-classes.pl.asc signatures/find-classes.pl.asc
+	mv -f $<.asc $@
+
+signatures/religion.html.asc: src/religion.html
+	gpg --detach-sign --armor $<
+	mv -f $<.asc $@
 
 signatures/truth.css.asc: src/truth.css
 	gpg --detach-sign --armor $<
-	mv -f src/truth.css.asc signatures/truth.css.asc
+	mv -f $<.asc $@
 
 signatures/truth.js.asc: src/truth.js
 	gpg --detach-sign --armor $<
-	mv -f src/truth.js.asc signatures/truth.js.asc
+	mv -f $<.asc $@
