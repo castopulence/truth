@@ -1,14 +1,21 @@
-body { font-size: 21px; }
-body > div.Mathematics { font-family: "Andalé Mono, Lucida Console, Courier, Luminari"; white-space: pre-wrap; }
+body { background-color: white; color: black; font-size: 21px; }
+body > hr, body > .unwrap { width: 100%; }
+body > * { width: 600px; }
+@media screen and (max-width: 600px) { body > * { width: auto; } }
 body.shimmer { background-color: darkgray; color: lightgray; }
 body.shimmer a { background-color: darkgray; color: lightgray; }
 body.shimmer a:active, body.shimmer a:hover, body.shimmer a:visited { color: lightpink; }
 body.shimmer bind:hover, body.shimmer bind:active, body.shimmer bind:visited, body.shimmer bind.shimmer { color: white; }
 bind:hover, bind:active, bind:visited, bind.shimmer { color: darkgray; cursor: help; font-weight: 800; }
 button { display: inline-block; }
+div.Mathematics, span.Mathematics { color: #B181B1; font-family: "Andalé Mono, Lucida Console, Courier, Luminari"; font-weight: 500; white-space: pre-wrap; }
+h1 span.Mathematics, h2 span.Mathematics, h3 span.Mathematics, h4 span.Mathematics, h5 span.Mathematics, h6 span.Mathematics { font-weight: bold; }
 div.title {  }
 div.title button, div.title h1 { display: inline; }
+em:hover { font-style: normal; }
 iframe, img { display: block; height: auto; max-width: 100%; }
+p.lighter { color: #01B181; }
 <!-- Borrowed from https://stackoverflow.com/a/12538532 -->
 .more_info { border-bottom: 1px dotted; position: relative; }
 .more_info .title { position: absolute; top: 20px; background: silver; padding: 4px; left: 0; white-space: nowrap; }
+<!-- /Borrowed from https://stackoverflow.com/a/12538532 -->
