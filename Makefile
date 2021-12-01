@@ -1,7 +1,7 @@
 .PHONY: all build classes clean commit push rebuild signatures verify
-CLASSES = classes/TRUTH.html.classes classes/religion.html.classes classes/consciousness.html.classes
+CLASSES = classes/TRUTH.html.classes classes/religion.html.classes classes/consciousness.html.classes classes/must.html.classes
 REMOVE = rm -fR
-SIGNATURES = signatures/CONTRIBUTING.asc signatures/Makefile.asc signatures/README.md.asc signatures/TRUTH.html.asc signatures/truth.css.asc signatures/truth.js.asc signatures/find-classes.pl.asc signatures/add-dashes-to-classes.bash.asc signatures/religion.html.asc signatures/consciousness.html.asc
+SIGNATURES = signatures/CONTRIBUTING.asc signatures/Makefile.asc signatures/README.md.asc signatures/TRUTH.html.asc signatures/truth.css.asc signatures/truth.js.asc signatures/find-classes.pl.asc signatures/add-dashes-to-classes.bash.asc signatures/religion.html.asc signatures/consciousness.html.asc signatures/must.html.asc
 ALL = $(CLASSES) $(SIGNATURES)
 
 all: build verify commit push
@@ -37,6 +37,7 @@ verify:
 	gpg --verify signatures/add-dashes-to-classes.bash.asc contrib/add-dashes-to-classes.bash
 	gpg --verify signatures/religion.html.asc src/religion.html
 	gpg --verify signatures/consciousness.html.asc src/consciousness.html
+	gpg --verify signatures/must.html.asc src/must.html
 
 %.asc: %
 	gpg --detach-sign --armor $<
@@ -48,6 +49,9 @@ classes/consciousness.html.classes: src/consciousness.html
 	perl contrib/find-classes.pl < $< > $@
 
 classes/religion.html.classes: src/religion.html
+	perl contrib/find-classes.pl < $< > $@
+
+classes/must.html.classes: src/must.html
 	perl contrib/find-classes.pl < $< > $@
 
 classes/TRUTH.html.classes: src/TRUTH.html
@@ -78,6 +82,10 @@ signatures/find-classes.pl.asc: contrib/find-classes.pl
 	mv -f $<.asc $@
 
 signatures/consciousness.html.asc: src/consciousness.html
+	gpg --detach-sign --armor $<
+	mv -f $<.asc $@
+
+signatures/must.html.asc: src/must.html
 	gpg --detach-sign --armor $<
 	mv -f $<.asc $@
 

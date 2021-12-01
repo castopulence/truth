@@ -42,6 +42,7 @@ $.fn.extend({
 });
 $(function () {
   const everyminute = 1000 * 60;
+  unifyclassesandtitles();
   if (false) {
     const interval = setInterval(shimmer, everyminute);
   } else {
@@ -137,4 +138,27 @@ function shimmer () {
 }
 function toggletooltip() {
   $(this).tooltip();
+}
+function unifyclassesandtitles() {
+  $("bind").each(function() {
+    const e = $(this),
+          c = (e.attr("class") || "").split(/\s+/),
+          t = (e.attr("title") || "").split(/\s+/),
+          T = {},
+          collect = function () {
+            for (let i=0,l=arguments.length; i<l; i++) {
+              const a = $.makeArray(arguments[i]);
+              for (let j=0,k=a.length; j<k; j++) {
+                T[a[j]] = true;
+              }
+            }
+          },
+          unify = function () {
+            const u = Object.keys(T).sort().join(" ").trim();
+            e.attr("class", u);
+            e.attr("title", u);
+          };
+    collect(c, t);
+    unify();
+  });
 }
