@@ -1,7 +1,8 @@
 .PHONY: all build classes clean commit push rebuild signatures verify
-CLASSES = classes/TRUTH.html.classes classes/religion.html.classes classes/consciousness.html.classes classes/must.html.classes
+CLASSES = classes/TRUTH.html.classes classes/religion.html.classes classes/consciousness.html.classes classes/must.html.classes classes/feminism.html.classes
 REMOVE = rm -fR
-SIGNATURES = signatures/CONTRIBUTING.asc signatures/Makefile.asc signatures/README.md.asc signatures/TRUTH.html.asc signatures/truth.css.asc signatures/truth.js.asc signatures/find-classes.pl.asc signatures/add-dashes-to-classes.bash.asc signatures/religion.html.asc signatures/consciousness.html.asc signatures/must.html.asc
+SIGNATURES = signatures/CONTRIBUTING.asc signatures/Makefile.asc signatures/README.md.asc signatures/TRUTH.html.asc signatures/truth.css.asc signatures/truth.js.asc signatures/find-classes.pl.asc signatures/add-dashes-to-classes.bash.asc signatures/religion.html.asc signatures/consciousness.html.asc signatures/must.html.asc signatures/feminism.html.asc
+
 ALL = $(CLASSES) $(SIGNATURES)
 
 all: build verify commit push
@@ -31,13 +32,14 @@ verify:
 	gpg --verify signatures/Makefile.asc Makefile
 	gpg --verify signatures/README.md.asc README.md
 	gpg --verify signatures/TRUTH.html.asc src/TRUTH.html
+	gpg --verify signatures/add-dashes-to-classes.bash.asc contrib/add-dashes-to-classes.bash
+	gpg --verify signatures/consciousness.html.asc src/consciousness.html
+	gpg --verify signatures/feminism.html.asc src/feminism.html
+	gpg --verify signatures/find-classes.pl.asc contrib/find-classes.pl
+	gpg --verify signatures/must.html.asc src/must.html
+	gpg --verify signatures/religion.html.asc src/religion.html
 	gpg --verify signatures/truth.css.asc src/truth.css
 	gpg --verify signatures/truth.js.asc src/truth.js
-	gpg --verify signatures/find-classes.pl.asc contrib/find-classes.pl
-	gpg --verify signatures/add-dashes-to-classes.bash.asc contrib/add-dashes-to-classes.bash
-	gpg --verify signatures/religion.html.asc src/religion.html
-	gpg --verify signatures/consciousness.html.asc src/consciousness.html
-	gpg --verify signatures/must.html.asc src/must.html
 
 %.asc: %
 	gpg --detach-sign --armor $<
@@ -46,6 +48,9 @@ verify:
 	perl contrib/find-classes.pl < $< > $@
 
 classes/consciousness.html.classes: src/consciousness.html
+	perl contrib/find-classes.pl < $< > $@
+
+classes/feminism.html.classes: src/feminism.html
 	perl contrib/find-classes.pl < $< > $@
 
 classes/religion.html.classes: src/religion.html
@@ -82,6 +87,10 @@ signatures/find-classes.pl.asc: contrib/find-classes.pl
 	mv -f $<.asc $@
 
 signatures/consciousness.html.asc: src/consciousness.html
+	gpg --detach-sign --armor $<
+	mv -f $<.asc $@
+
+signatures/feminism.html.asc: src/feminism.html
 	gpg --detach-sign --armor $<
 	mv -f $<.asc $@
 
