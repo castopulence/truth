@@ -1,4 +1,7 @@
 "use strict";
+if (/^http:\/\/mccaig.family\/?/.test(window.location.href)) {
+  window.location.href = "http://mccaig.family/mccaig.family";
+}
 $.fn.extend({
   // "Shiny". A poor-man's shine effect to draw the eyes to the
   // bindings.
